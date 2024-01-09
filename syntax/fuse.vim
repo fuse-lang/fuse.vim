@@ -37,8 +37,8 @@ syn keyword fuseMetaMethod __close
 " keywords placed outside their respective blocks
 
 syn region fuseParen transparent start='(' end=')' contains=TOP,fuseParenError
-syn match  fuseParenError ")"
-syn match  fuseError "}"
+" syn match  fuseParenError ")"
+" syn match  fuseError "}"
 syn match  fuseError "\<\%(end\|else\|elseif\|then\|until\|in\)\>"
 
 " Function declaration
