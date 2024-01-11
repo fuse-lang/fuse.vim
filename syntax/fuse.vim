@@ -61,7 +61,7 @@ syn region fuseCondStart transparent matchgroup=fuseCond start="\<if\>" end="\<t
 " match ... when
 syn region fuseMatchStart transparent matchgroup=fuseMatch start="\<match\>" end="\<when\>"me=e-4 contains=TOP nextgroup=fuseMatchBlock
 syn region fuseMatchBlock contained transparent matchgroup=fuseMatch start="\<when\>" end="\<end\>" contains=TOP
-syn keyword fuseMatch contained containedin=fuseMatchBlock then
+syn region fuseMatchThen contained containedin=fuseMatchBlock matchgroup=fuseMatch start="\<then\>" end="\<end\>" contains=TOP
 
 " do ... end
 syn region fuseBlock transparent matchgroup=fuseStatement start="\<do\>" end="\<end\>" contains=TOP
