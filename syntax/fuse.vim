@@ -58,6 +58,11 @@ syn region fuseCondElseif contained containedin=fuseCondEnd transparent matchgro
 " if ... then
 syn region fuseCondStart transparent matchgroup=fuseCond start="\<if\>" end="\<then\>"me=e-4 contains=TOP nextgroup=fuseCondEnd skipwhite skipempty
 
+" match ... when
+syn region fuseMatchStart transparent matchgroup=fuseMatch start="\<match\>" end="\<when\>"me=e-4 contains=TOP nextgroup=fuseMatchBlock
+syn region fuseMatchBlock contained transparent matchgroup=fuseMatch start="\<when\>" end="\<end\>" contains=TOP
+syn keyword fuseMatch contained containedin=fuseMatchBlock then
+
 " do ... end
 syn region fuseBlock transparent matchgroup=fuseStatement start="\<do\>" end="\<end\>" contains=TOP
 " repeat ... until
@@ -288,6 +293,7 @@ hi def link fuseSymbolOperator   fuseOperator
 hi def link fuseConstant         Constant
 hi def link fuseCond             Conditional
 hi def link fuseCondElse         Conditional
+hi def link fuseMatch            Conditional
 hi def link fuseFunction         Function
 hi def link fuseMetaMethod       Function
 hi def link fuseComment          Comment
