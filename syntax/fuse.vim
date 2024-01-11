@@ -43,8 +43,8 @@ syn match  fuseError "\<\%(end\|else\|elseif\|then\|until\|in\)\>"
 
 " Function declaration
 syn region fuseFunctionBlock transparent matchgroup=fuseFunction start="\<function\>" end="\<end\>" contains=TOP
-syn region fuseFunctionBlock transparent matchgroup=fuseFunction start="\v<fn>(.{-})\((.{-})\)(.{-})&(.*\=\>)@!" end="\<end\>" contains=TOP
-syn keyword fuseFunctionBlock contained containedin=fuseFor fn
+syn region fuseFnBlock transparent matchgroup=fuseFunction start="\v<fn>(.{-})\((.{-})\)(.{-})&(.*\=\>)@!" end="\<end\>" contains=TOP
+" syn keyword fuse contained containedin=fuseFor fn
 
 " else
 syn keyword fuseCondElse matchgroup=fuseCond contained containedin=fuseCondEnd else
@@ -115,6 +115,14 @@ syn match fuseNumber "\<0[xX][[:xdigit:].]\+\%([pP][-+]\=\d\+\)\=\>"
 
 " tables
 syn region fuseTableBlock transparent matchgroup=fuseTable start="{" end="}" contains=TOP,fuseStatement
+
+" struct end
+syn region fuseStructBlock transparent matchgroup=fuseStruct start="\<struct\>" end="\<end\>" contains=TOP
+
+" impl ... for ... end
+syn region fuseImplBlock transparent matchgroup=fuseImpl start="\<impl\>" end="\<end\>" contains=TOP
+
+syn keyword fuseImplBlock contained containedin=fuseImpl for
 
 " methods
 syntax match fuseFunc ":\@<=\k\+"
@@ -286,6 +294,8 @@ hi def link fuseComment          Comment
 hi def link fuseCommentDelimiter fuseComment
 hi def link fuseTodo             Todo
 hi def link fuseTable            Structure
+hi def link fuseStruct           Structure
+hi def link fuseImpl             Structure
 hi def link fuseError            Error
 hi def link fuseParenError       Error
 hi def link fuseSpecial          SpecialChar
