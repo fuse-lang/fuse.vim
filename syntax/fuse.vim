@@ -98,18 +98,19 @@ syn keyword fuseConstant nil
 syn keyword fuseConstant true false
 
 " strings
+" escapes
 syn match  fuseSpecial contained #\\[\\abfnrtv'"[\]]\|\\[[:digit:]]\{,3}#
 syn match  fuseSpecial contained #\\z\|\\x[[:xdigit:]]\{2}#
 syn match  fuseSpecial contained #\\u{[[:xdigit:]]\+}#
 
-syn region fuseString matchgroup=fuseStringDelimiter start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=fuseSpecial,@Spell
-syn region fuseString matchgroup=fuseStringDelimiter start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=fuseSpecial,@Spell
+" literal strings
+syn region fuseString matchgroup=fuseStringDelimiter start=+[uU]\=\z('\|"\)+ end="\z1" skip="\\\\\|\\\z1" contains=fuseSpecial,@Spell
 
 " multiline strings
 syn region fuseString2 matchgroup=fuseStringDelimiter start=+[uU]\=\z('''\|"""\)+ end="\z1" contains=fuseSpecial,@Spell keepend
 
 " raw strings
-syn region fuseString2 matchgroup=fuseStringDelimiter start='b\?r\z(#*\)\z("\|\'\)' end='\z2\z1' contains=@Spell
+syn region fuseString2 matchgroup=fuseStringDelimiter start='[uU]\?r\z(#*\)\z("\|\'\)' end='\z2\z1' contains=@Spell
 
 
 " integer number
