@@ -101,10 +101,13 @@ syn keyword fuseConstant true false
 syn match  fuseSpecial contained #\\[\\abfnrtv'"[\]]\|\\[[:digit:]]\{,3}#
 syn match  fuseSpecial contained #\\z\|\\x[[:xdigit:]]\{2}#
 syn match  fuseSpecial contained #\\u{[[:xdigit:]]\+}#
-syn region fuseString2 matchgroup=fuseStringDelimiter start="\[\z(=*\)\[" end="\]\z1\]" contains=@Spell
 
 syn region fuseString matchgroup=fuseStringDelimiter start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=fuseSpecial,@Spell
 syn region fuseString matchgroup=fuseStringDelimiter start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=fuseSpecial,@Spell
+
+" multiline strings
+syn region fuseString2 matchgroup=fuseStringDelimiter start=+[uU]\=\z('''\|"""\)+ end="\z1" contains=fuseSpecial,@Spell keepend
+
 
 " integer number
 syn match fuseNumber "\<\d\+\>"
