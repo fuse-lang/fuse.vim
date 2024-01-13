@@ -108,6 +108,9 @@ syn region fuseString matchgroup=fuseStringDelimiter start=+"+ end=+"+ skip=+\\\
 " multiline strings
 syn region fuseString2 matchgroup=fuseStringDelimiter start=+[uU]\=\z('''\|"""\)+ end="\z1" contains=fuseSpecial,@Spell keepend
 
+" raw strings
+syn region fuseString2 matchgroup=fuseStringDelimiter start='b\?r\z(#*\)"' end='"\z1' contains=@Spell
+
 
 " integer number
 syn match fuseNumber "\<\d\+\>"
