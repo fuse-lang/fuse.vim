@@ -42,9 +42,8 @@ syn region fuseParen transparent start='(' end=')' contains=TOP,fuseParenError
 syn match  fuseError "\<\%(end\|else\|elseif\|then\|until\|in\)\>"
 
 " Function declaration
-syn region fuseFunctionBlock transparent matchgroup=fuseFunction start="\<function\>" end="\<end\>" contains=TOP
-syn region fuseFnBlock transparent matchgroup=fuseFunction start="\v<fn>(.{-})\((.{-})\)(.{-})&(.*\=\>)@!" end="\<end\>" contains=TOP
-" syn keyword fuse contained containedin=fuseFor fn
+syn region fuseFunctionBlock transparent matchgroup=fuseFunction start="\<function\>" end="=>\|\<end\>" contains=TOP
+syn region fuseFnBlock transparent matchgroup=fuseFunction start="\<fn\>" end="=>\|\<end\>" contains=TOP
 
 " else
 syn keyword fuseCondElse matchgroup=fuseCond contained containedin=fuseCondEnd else
