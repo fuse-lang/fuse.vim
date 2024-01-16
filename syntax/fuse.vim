@@ -114,16 +114,19 @@ syn region fuseString2 matchgroup=fuseStringDelimiter start='[uU]\?r\z(#*\)\z("\
 
 
 " integer number
-syn match fuseNumber "\<\d\+\>"
+syn match fuseNumber "\<[0-9_]\+\>"
 " floating point number, with dot, optional exponent
-syn match fuseNumber  "\<\d\+\.\d*\%([eE][-+]\=\d\+\)\="
+syn match fuseNumber  "\<[0-9_]\+\.[0-9_]*\%([eE][-+]\=\d\+\)\="
 " floating point number, starting with a dot, optional exponent
-syn match fuseNumber  "\.\d\+\%([eE][-+]\=\d\+\)\=\>"
+syn match fuseNumber  "\.[0-9_]\+\%([eE][-+]\=\d\+\)\=\>"
 " floating point number, without dot, with exponent
-syn match fuseNumber  "\<\d\+[eE][-+]\=\d\+\>"
+syn match fuseNumber  "\<[0-9_]\+[eE][-+]\=\d\+\>"
 
 " hex numbers
-syn match fuseNumber "\<0[xX][[:xdigit:].]\+\%([pP][-+]\=\d\+\)\=\>"
+syn match fuseNumber "\<0[xX][[:xdigit:]._]\+\%([pP][-+]\=\d\+\)\=\>"
+
+" binary numbers
+syn match fuseNumber "\<0[bB][01_]\+\%([pP][-+]\=\d\+\)\=\>"
 
 " tables
 syn region fuseTableBlock transparent matchgroup=fuseTable start="{" end="}" contains=TOP,fuseStatement
