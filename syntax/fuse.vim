@@ -77,7 +77,7 @@ syn region fuseFor transparent matchgroup=fuseRepeat start="\<for\>" end="\<do\>
 syn keyword fuseFor contained containedin=fuseFor in
 
 " other keywords
-syn keyword fuseStatement return const let mut static break pub
+syn keyword fuseStatement return const let static break pub
 
 " operators
 syn keyword fuseOperator and or not
