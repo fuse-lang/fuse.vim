@@ -61,6 +61,7 @@ syn region fuseCondStart transparent matchgroup=fuseCond start="\<if\>" end="\<t
 syn region fuseMatchStart transparent matchgroup=fuseMatch start="\<match\>" end="\<when\>"me=e-4 contains=TOP nextgroup=fuseMatchBlock
 syn region fuseMatchBlock contained transparent matchgroup=fuseMatch start="\<when\>" end="\<end\>" contains=TOP
 syn region fuseMatchThen contained containedin=fuseMatchBlock matchgroup=fuseMatch start="\<then\>" end="\<end\>" contains=TOP
+syn region fuseMatchElse contained containedin=fuseMatchBlock matchgroup=fuseMatch start="\<else\>" end="\<end\>" contains=TOP
 
 " do ... end
 syn region fuseBlock transparent matchgroup=fuseStatement start="\<do\>" end="\<end\>" contains=TOP
@@ -76,7 +77,7 @@ syn region fuseFor transparent matchgroup=fuseRepeat start="\<for\>" end="\<do\>
 syn keyword fuseFor contained containedin=fuseFor in
 
 " other keywords
-syn keyword fuseStatement return const let global break pub
+syn keyword fuseStatement return const let mut static break pub
 
 " operators
 syn keyword fuseOperator and or not
@@ -129,6 +130,9 @@ syn match fuseNumber "\<0[bB][01_]\+\%([pP][-+]\=\d\+\)\=\>"
 
 " tables
 syn region fuseTableBlock transparent matchgroup=fuseTable start="{" end="}" contains=TOP,fuseStatement
+
+" enum end
+syn region fuseEnumBlock transparent matchgroup=fuseEnum start="\<enum\>" end="\<end\>" contains=TOP
 
 " struct end
 syn region fuseStructBlock transparent matchgroup=fuseStruct start="\<struct\>" end="\<end\>" contains=TOP
@@ -309,6 +313,7 @@ hi def link fuseComment          Comment
 hi def link fuseCommentDelimiter fuseComment
 hi def link fuseTodo             Todo
 hi def link fuseTable            Structure
+hi def link fuseEnum             Structure
 hi def link fuseStruct           Structure
 hi def link fuseImpl             Structure
 hi def link fuseError            Error
