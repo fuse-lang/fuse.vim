@@ -143,13 +143,13 @@ syn region fuseTraitBlock transparent matchgroup=fuseTrait start="\<trait\>" end
 " impl ... for ... end
 syn region fuseImplBlock transparent matchgroup=fuseImpl start="\<impl\>" end="\<end\>" contains=TOP
 
-syn keyword fuseImplBlock contained containedin=fuseImpl for
+syn keyword fuseFor contained containedin=fuseImpl for
 
 " methods
 syntax match fuseFunc ":\@<=\k\+"
 
 " built-in functions
-syn keyword fuseFunc assert collectgarbage dofile error next
+syn keyword fuseFunc assert assert_eq collectgarbage dofile error next
 syn keyword fuseFunc print rawget rawset self tonumber tostring type _VERSION
 
 syn keyword fuseFunc getmetatable setmetatable
