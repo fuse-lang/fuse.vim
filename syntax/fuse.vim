@@ -137,6 +137,9 @@ syn region fuseEnumBlock transparent matchgroup=fuseEnum start="\<enum\>" end="\
 " struct end
 syn region fuseStructBlock transparent matchgroup=fuseStruct start="\<struct\>" end="\<end\>" contains=TOP
 
+" trait end
+syn region fuseTraitBlock transparent matchgroup=fuseTrait start="\<trait\>" end="\<end\>" contains=TOP
+
 " impl ... for ... end
 syn region fuseImplBlock transparent matchgroup=fuseImpl start="\<impl\>" end="\<end\>" contains=TOP
 
@@ -315,6 +318,7 @@ hi def link fuseTodo             Todo
 hi def link fuseTable            Structure
 hi def link fuseEnum             Structure
 hi def link fuseStruct           Structure
+hi def link fuseTrair            Structure
 hi def link fuseImpl             Structure
 hi def link fuseError            Error
 hi def link fuseParenError       Error
