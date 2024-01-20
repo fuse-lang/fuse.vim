@@ -318,7 +318,7 @@ hi def link fuseTodo             Todo
 hi def link fuseTable            Structure
 hi def link fuseEnum             Structure
 hi def link fuseStruct           Structure
-hi def link fuseTrair            Structure
+hi def link fuseTrait            Structure
 hi def link fuseImpl             Structure
 hi def link fuseError            Error
 hi def link fuseParenError       Error
