@@ -66,7 +66,7 @@ syn region fuseMatchElse contained containedin=fuseMatchBlock matchgroup=fuseMat
 " do ... end
 syn region fuseBlock transparent matchgroup=fuseStatement start="\<do\>" end="\<end\>" contains=TOP
 " repeat ... until
-syn region fuseRepeatBlock transparent matchgroup=fuseRepeat start="\<repeat\>" end="\<until\>" contains=TOP
+syn region fuseRepeatBlock transparent matchgroup=fuseRepeat start="\<repeat\>" end="\<until\>\|\<end\>" contains=TOP
 
 " while ... do
 syn region fuseWhile transparent matchgroup=fuseRepeat start="\<while\>" end="\<do\>"me=e-2 contains=TOP nextgroup=fuseBlock skipwhite skipempty
@@ -304,7 +304,7 @@ hi def link fuseString           String
 hi def link fuseString2          String
 hi def link fuseStringDelimiter  fuseString
 hi def link fuseNumber           Number
-hi def link fuseOperator         Operator
+hi def link fuseOperator         Keyword
 hi def link fuseSymbolOperator   fuseOperator
 hi def link fuseConstant         Constant
 hi def link fuseCond             Conditional
