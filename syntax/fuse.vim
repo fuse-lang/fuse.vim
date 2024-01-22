@@ -77,10 +77,10 @@ syn region fuseFor transparent matchgroup=fuseRepeat start="\<for\>" end="\<do\>
 syn keyword fuseFor contained containedin=fuseFor in
 
 " other keywords
-syn keyword fuseStatement return const let static break pub
+syn keyword fuseStatement return const let static break pub type
 
 " operators
-syn keyword fuseOperator and or not
+syn keyword fuseOperator and or not in typeof
 
 syn match fuseSymbolOperator "[#<>=~^&|*/%+-]\|\.\{2,3}"
 
@@ -96,6 +96,8 @@ syn match fuseComment "\%^#!.*"
 
 syn keyword fuseConstant nil
 syn keyword fuseConstant true false
+
+syn keyword fuseBuiltinType boolean number string ustring unsafe unknown never
 
 " strings
 " escapes
@@ -142,15 +144,17 @@ syn region fuseTraitBlock transparent matchgroup=fuseTrait start="\<trait\>" end
 
 " impl ... for ... end
 syn region fuseImplBlock transparent matchgroup=fuseImpl start="\<impl\>" end="\<end\>" contains=TOP
-
 syn keyword fuseFor contained containedin=fuseImpl for
+
+" union end
+syn region fuseUnionBlock transparent matchgroup=fuseUnion start="\<union\>" end="\<end\>" contains=TOP
 
 " methods
 syntax match fuseFunc ":\@<=\k\+"
 
 " built-in functions
 syn keyword fuseFunc assert assert_eq collectgarbage dofile error next
-syn keyword fuseFunc print rawget rawset self tonumber tostring type _VERSION
+syn keyword fuseFunc print rawget rawset self tonumber tostring _VERSION
 
 syn keyword fuseFunc getmetatable setmetatable
 syn keyword fuseFunc ipairs pairs
@@ -307,6 +311,7 @@ hi def link fuseNumber           Number
 hi def link fuseOperator         Keyword
 hi def link fuseSymbolOperator   fuseOperator
 hi def link fuseConstant         Constant
+hi def link fuseBuiltinType      Type
 hi def link fuseCond             Conditional
 hi def link fuseCondElse         Conditional
 hi def link fuseMatch            Conditional
@@ -320,6 +325,7 @@ hi def link fuseEnum             Structure
 hi def link fuseStruct           Structure
 hi def link fuseTrait            Structure
 hi def link fuseImpl             Structure
+hi def link fuseUnion            Structure
 hi def link fuseError            Error
 hi def link fuseParenError       Error
 hi def link fuseSpecial          SpecialChar
