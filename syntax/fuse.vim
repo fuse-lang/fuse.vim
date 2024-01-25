@@ -80,7 +80,7 @@ syn keyword fuseFor contained containedin=fuseFor in
 syn keyword fuseStatement return const let static break pub type
 
 " operators
-syn keyword fuseOperator and or not in typeof
+syn keyword fuseOperator and or not in
 
 syn match fuseSymbolOperator "[#<>=~^&|*/%+-]\|\.\{2,3}"
 
@@ -163,6 +163,7 @@ syn keyword fuseFunc _G loadfile rawequal require
 syn keyword fuseFunc load select
 syn keyword fuseFunc getfenv setfenv
 syn keyword fuseFunc rawlen
+syn keyword fuseFunc typeof
 
 syn match fuseFunc /\<coroutine\.running\>/
 syn match   fuseFunc /\<coroutine\.create\>/
